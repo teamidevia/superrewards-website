@@ -2,10 +2,15 @@ const button = document.querySelector('.featuresButton')
 const contentPart1 = document.querySelector('.part1')
 const contentPart2 = document.querySelector('.part2')
 const contentPart3 = document.querySelector('.part3')
+const tabButtons = document.querySelectorAll('.tab-btn')
 
-button.addEventListener('mouseover', (e) => {
+button.addEventListener('click', (e) => {
   // console.log(e.target);
-  let lastNumber = e.target.innerText[e.target.innerText.length - 1]
+  let lastNumber = e.target.dataset.target
+  tabButtons.forEach((btn) => {
+    btn.classList.remove('active')
+  })
+  e.target.classList.add('active')
   if (lastNumber == 1) {
     contentPart1.classList.add('d-block')
     contentPart2.classList.add('d-none')
